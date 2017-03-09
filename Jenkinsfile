@@ -1,6 +1,11 @@
 pipeline {
-  agent { any }
+  agent { docker 'php' }
   stages {
+    stage('Build') {
+      steps {
+        sh 'php --version'
+      }
+    }
     stage('Test') {
       steps {
         sh 'echo "Fail"'
